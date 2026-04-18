@@ -1,0 +1,37 @@
+---
+- name: System User Setup and App Deployment
+  hosts: my_computer
+  become: yes  
+  
+  vars:
+    new_user: "devops_hiru"
+    app_path: "/tmp/my_app"
+
+  tasks:
+    - name: Create a new developer user
+      user:
+        name: "{{ new_user }}"
+        comment: "Ansible Automated User"
+        shell: /bin/bash
+        groups: staff  
+
+    - name: Create a directory for the application
+      file:
+        path: "{{ app_path }}"
+        state: directory
+        owner: "{{ new_user }}"
+        mode: '0755'
+
+    - name: Create a dummy application file
+      copy:
+        content: "Welcome to Hiruka's Automated App 🚀"
+        dest: "{{ app_path }}/app.txt"
+        owner: "{{ new_user }}"
+
+    - name: Verify user creation
+      command: "id {{ new_user }}"
+      register: user_info
+
+    - name: Show verified user info
+      debug:
+        var: user_info.stdout

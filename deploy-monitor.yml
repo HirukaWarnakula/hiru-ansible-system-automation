@@ -1,0 +1,13 @@
+---
+- name: Deploy Monitoring Stack Automatically
+  hosts: my_computer
+  tasks:
+    - name: Start Monitoring Stack using Docker Compose
+      community.docker.docker_compose_v2:
+        project_src: "../hiru-monitoring-stack" 
+        state: present
+      register: output
+
+    - name: Show Deployment Status
+      debug:
+        msg: "Monitoring Stack is UP and Running, Hiruka! 🚀"

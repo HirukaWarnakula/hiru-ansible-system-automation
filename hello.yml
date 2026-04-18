@@ -1,0 +1,15 @@
+---
+- name: My First Automation Playbook
+  hosts: my_computer
+  tasks:
+    - name: Display a welcome message
+      debug:
+        msg: "Hello Hiruka! Ansible is now automating your Mac 🚀"
+
+    - name: Check system uptime
+      command: uptime
+      register: uptime_output
+
+    - name: Show system uptime results
+      debug:
+        var: uptime_output.stdout
