@@ -32,6 +32,7 @@ Ansible ensures that the system state is only modified if it deviates from the d
 ├── setup-system.yml      # Playbook for user & app setup
 ├── deploy-monitor.yml    # Playbook for Docker monitoring stack
 └── README.md             # Project documentation
+```
 
 🚀 How to Use
 1. Prerequisites
