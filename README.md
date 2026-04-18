@@ -57,7 +57,10 @@ ansible-playbook -i hosts deploy-monitor.yml
 
 Here is the successful execution of the system setup playbook:
 
-![Ansible Playbook Output](ansible-output.jpeg)
+
+
+
+   ![Ansible Playbook Output](ansible-output.jpeg)
 
 
 Developed by Hiruka Warnakula - Final-year IT Student
