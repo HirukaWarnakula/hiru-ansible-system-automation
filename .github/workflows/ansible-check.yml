@@ -1,0 +1,19 @@
+name: Ansible Lint and Syntax Check 
+on: [push] 
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Install Ansible
+        run: pip install ansible
+
+      - name: Check Playbook Syntax
+        run: |
+          ansible-playbook --syntax-check setup-system.yml
+          ansible-playbook --syntax-check deploy-monitor.yml
+          
+
